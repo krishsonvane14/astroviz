@@ -1,0 +1,289 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  overflow-x: hidden;
+}
+
+section {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: url(bg.jpg);
+  background-size: cover;
+  animation: animatebg 5s linear infinite;
+}
+
+@keyframes animatebg {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+}
+
+span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 4px;
+  height: 4px;
+  background: white;
+  border-radius: 50%;
+  box-shadow: 0 0 0 1px white;
+  animation: animate 5s linear infinite;
+}
+
+span::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 400px;
+  height: 1px;
+  background: linear-gradient(90deg, #fff, transparent);
+}
+
+@keyframes animate {
+  0% {
+    transform: rotate(315deg) translate(0);
+  }
+  100% {
+    transform: rotate(315deg) translate(-1000px);
+  }
+}
+
+span:nth-child(1) {
+  top: 0;
+  right: 0;
+  left: initial;
+}
+
+span:nth-child(2) {
+  top: 0;
+  right: 700px;
+}
+
+span:nth-child(3) {
+  top: 100px;
+  right: 80px;
+}
+
+.navbar {
+  display: flex;
+  justify-content: center; 
+  padding: 20px 50px;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 120px;
+}
+
+.nav-links:hover {
+  cursor: pointer;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+  font-size: 18px;
+}
+
+.homepage {
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  color: white;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.homepage::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6); 
+  z-index: 1;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100%;
+  z-index: 3; 
+}
+
+.title {
+  font-size: 150px;
+  font-weight: 700;
+  text-align:left;
+  margin-bottom:100px;
+  z-index: 2; 
+}
+
+.asteroid {
+  width: 400px;
+  position: absolute;
+  z-index: 1; 
+  animation: float 3s ease-in-out infinite; 
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0); 
+  }
+  50% {
+    transform: translateY(-20px); 
+  }
+}
+
+
+
+.highlight {
+  color: #dbdbdb; 
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.information-section {
+  padding: 50px;
+  background-color: #111;
+  color: white;
+  text-align: center;
+  min-height: 100vh; 
+}
+
+.section-title {
+  font-size: 36px;
+  margin-bottom: 30px;
+}
+
+.planet-cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px; /* Increased gap for more spacing */
+  padding: 20px; /* Add padding to create space around the cards */
+}
+
+.planet-card {
+background-color: #282833;
+border-radius: 10px;
+padding: 20px;
+width: 300px; /* Fixed width for cards */
+transition: transform 0.3s ease, background-color 0.3s ease;
+display: flex;
+flex-direction: column;
+align-items: center; 
+box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Optional: add shadow for better separation */
+}
+
+@media (max-width: 768px) {
+.planet-card {
+  width: calc(100% - 20px); /* On smaller screens, make cards full width */
+}
+}
+
+.planet-card:hover {
+  transform: translateY(-10px); 
+  background-color: #333;
+}
+
+.planet-image {
+  width: 200px; 
+  height: 200px; 
+  border-radius: 10px;
+}
+
+.planet-info {
+  margin-top: 15px;
+}
+
+.planet-info h3 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.planet-info p {
+  font-size: 16px;
+  color: #ccc;
+}
+
+/* New shooting stars styles */
+@keyframes shootingStar {
+  0% {
+    transform: translateX(100vw) translateY(-100px);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-100vw) translateY(100vh);
+    opacity: 0;
+  }
+}
+
+.shooting-star {
+  position: absolute;
+  width: 2px;
+  height: 80px;
+  background: white;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+  opacity: 0;
+  animation: shootingStar linear infinite;
+}
+
+.shooting-star:nth-child(1) {
+  top: 10%;
+  left: 80%;
+  animation-duration: 1s;
+  animation-delay: 0s;
+}
+
+.shooting-star:nth-child(2) {
+  top: 20%;
+  left: 50%;
+  animation-duration: 1.5s;
+  animation-delay: 0.5s;
+}
+
+.shooting-star:nth-child(3) {
+  top: 30%;
+  left: 70%;
+  animation-duration: 1.2s;
+  animation-delay: 1s;
+}
+
